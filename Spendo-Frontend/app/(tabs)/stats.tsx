@@ -23,11 +23,11 @@ function CategoryItem({ item }: { item: CategoryData }) {
     <View style={styles.categoryItem}>
       <View style={styles.categoryHeader}>
         <View style={[styles.iconContainer, { backgroundColor: item.color }]}>
-          <Ionicons name={item.icon} size={20} color="white" />
+          <Ionicons name={item.icon} size={20} color="yellow" />
         </View>
         <View style={styles.categoryDetails}>
           <Text style={styles.categoryName}>{item.name}</Text>
-          <Text style={styles.categoryAmount}>LKR {item.amount}</Text>
+          <Text style={styles.categoryAmount}>₹{item.amount}</Text>
         </View>
         <Text style={styles.categoryPercentage}>{item.percentage}%</Text>
       </View>
@@ -63,7 +63,7 @@ export default function StatsScreen() {
         
         <View style={styles.chartCard}>
           <Text style={styles.chartTitle}>Spending</Text>
-          <Text style={styles.totalAmount}>LKR 3,400</Text>
+          <Text style={styles.totalAmount}>₹3,400</Text>
           
           <View style={styles.chartContainer}>
             <BarChart 
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   chartCard: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   categoriesContainer: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   profileCard: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     alignItems: 'center',
     shadowColor: '#000',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     margin: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     padding: 16,
     shadowColor: '#000',
