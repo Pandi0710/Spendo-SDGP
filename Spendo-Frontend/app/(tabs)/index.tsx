@@ -7,8 +7,8 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Ionicons name="chevron-back" size={24} color="#1F2937" />
-        <Ionicons name="notifications-outline" size={24} color="#1F2937" />
+        <Ionicons name="chevron-back" size={24} color="#f1fff4" />
+        <Ionicons name="notifications-outline" size={24} color="#f1fff4" />
       </View>
       
       <TopExpenses />
@@ -59,7 +59,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#90a78b',
   },
   expensesList: {
-    flex: 1,
-    paddingTop: 16,
+    padding: 20,
+    backgroundColor: '#F1FFF4',
+    borderRadius: 16,
+    margin: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
 });

@@ -48,7 +48,7 @@ export default function TopExpenses() {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#F1FFF4',
     borderRadius: 16,
     margin: 16,
     shadowColor: '#000',
