@@ -14,7 +14,7 @@ const categories: CategoryData[] = [
   { name: 'Education', percentage: 35, amount: 1250, color: '#60A5FA', icon: 'school-outline' },
   { name: 'Rentals', percentage: 25, amount: 850, color: '#34D399', icon: 'key-outline' },
   { name: 'Foods', percentage: 20, amount: 650, color: '#F472B6', icon: 'restaurant-outline' },
-  { name: 'Transport', percentage: 12, amount: 400, color: '#A78BFA', icon: 'airplane-outline' },
+  { name: 'Transport', percentage: 12, amount: 400, color: '#A78BFA', icon: 'car-outline' },
   { name: 'Entertainment', percentage: 8, amount: 250, color: '#FBBF24', icon: 'film-outline' },
 ];
 
@@ -27,7 +27,7 @@ function CategoryItem({ item }: { item: CategoryData }) {
         </View>
         <View style={styles.categoryDetails}>
           <Text style={styles.categoryName}>{item.name}</Text>
-          <Text style={styles.categoryAmount}>₹{item.amount}</Text>
+          <Text style={styles.categoryAmount}>LKR {item.amount}</Text>
         </View>
         <Text style={styles.categoryPercentage}>{item.percentage}%</Text>
       </View>
@@ -63,7 +63,7 @@ export default function StatsScreen() {
         
         <View style={styles.chartCard}>
           <Text style={styles.chartTitle}>Spending</Text>
-          <Text style={styles.totalAmount}>₹3,400</Text>
+          <Text style={styles.totalAmount}>LKR 3,400</Text>
           
           <View style={styles.chartContainer}>
             <BarChart 
