@@ -36,7 +36,7 @@ export default function HomeScreen() {
           chartData={[20, 30, 40, 35, 45, 30, 25, 35]}
         />
         <ExpenseCard
-          icon="airplane-outline"
+          icon="car-outline"
           title="Transport"
           percentage={25}
           color="#A78BFA"
