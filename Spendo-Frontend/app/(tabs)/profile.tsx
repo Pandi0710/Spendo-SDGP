@@ -42,18 +42,18 @@ export default function ProfileScreen() {
           
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 4,945</Text>
-              <Text style={styles.statLabel}>Balance</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 1,250</Text>
+              <Text style={styles.statValue}>LKR 5000</Text>
               <Text style={styles.statLabel}>Income</Text>
             </View>
             <View style={styles.statDivider} />
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 3,400</Text>
+              <Text style={styles.statValue}>LKR 3400</Text>
               <Text style={styles.statLabel}>Expenses</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>LKR 1600</Text>
+              <Text style={styles.statLabel}>Balane</Text>
             </View>
           </View>
         </View>
