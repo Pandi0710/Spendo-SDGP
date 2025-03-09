@@ -28,9 +28,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Biggest-Expenses',
           tabBarIcon: ({ size, color, focused }) => (
-            <CustomTabBarIcon name="home-outline" size={size} color={color} focused={focused} />
+            <CustomTabBarIcon name="cash-outline" size={size} color={color} focused={focused} />
           ),
         }}
       />
