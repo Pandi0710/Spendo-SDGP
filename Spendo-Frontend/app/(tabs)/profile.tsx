@@ -38,7 +38,7 @@ export default function ProfileScreen() {
             style={styles.profileImage} 
           />
           <Text style={styles.profileName}>Spendo Jayasingha</Text>
-          <Text style={styles.profileEmail}>spendojaye@example.com</Text>
+          <Text style={styles.profileEmail}>spendojaye@gmail.com</Text>
           
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
@@ -53,7 +53,7 @@ export default function ProfileScreen() {
             <View style={styles.statDivider} />
             <View style={styles.statItem}>
               <Text style={styles.statValue}>LKR 1600</Text>
-              <Text style={styles.statLabel}>Balane</Text>
+              <Text style={styles.statLabel}>Balance</Text>
             </View>
           </View>
         </View>
