@@ -23,7 +23,7 @@ function CategoryItem({ item }: { item: CategoryData }) {
     <View style={styles.categoryItem}>
       <View style={styles.categoryHeader}>
         <View style={[styles.iconContainer, { backgroundColor: item.color }]}>
-          <Ionicons name={item.icon} size={20} color="yellow" />
+          <Ionicons name={item.icon} size={20} color="white" />
         </View>
         <View style={styles.categoryDetails}>
           <Text style={styles.categoryName}>{item.name}</Text>
@@ -70,8 +70,8 @@ export default function StatsScreen() {
               data={[30, 45, 60, 75, 90, 60, 45]} 
               color="#3B82F6" 
               height={150}
-              barWidth={30}
-              barGap={10}
+              barWidth={50}
+              barGap={30}
             />
           </View>
           
