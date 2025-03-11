@@ -17,30 +17,30 @@ export default function HomeScreen() {
         <ExpenseCard
           icon="school-outline"
           title="Education"
-          percentage={85}
+          percentage={35}
           color="#60A5FA"
-          chartData={[40, 55, 70, 85, 65, 75, 90, 80]}
+          chartData={[65, 55, 70, 85, 80, 75, 90, 80]}
         />
         <ExpenseCard
           icon="key-outline"
           title="Rentals"
-          percentage={65}
+          percentage={25}
           color="#34D399"
           chartData={[30, 45, 60, 75, 55, 65, 70, 60]}
         />
         <ExpenseCard
           icon="restaurant-outline"
           title="Foods"
-          percentage={45}
+          percentage={20}
           color="#F472B6"
-          chartData={[20, 30, 40, 35, 45, 30, 25, 35]}
+          chartData={[20, 30, 70, 35, 65, 30, 55, 35]}
         />
         <ExpenseCard
           icon="car-outline"
           title="Transport"
-          percentage={25}
+          percentage={12}
           color="#A78BFA"
-          chartData={[15, 20, 25, 30, 20, 15, 25, 20]}
+          chartData={[15, 30, 45, 20, 35, 55, 45, 15]}
         />
       </View>
     </SafeAreaView>
