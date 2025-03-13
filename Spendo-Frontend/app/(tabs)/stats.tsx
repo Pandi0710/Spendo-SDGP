@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView,useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BarChart from '../../components/BarChart';
 

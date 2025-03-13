@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BarChart from './BarChart';
 
@@ -17,6 +17,9 @@ export default function ExpenseCard({
   color = '#60A5FA',
   chartData = [30, 45, 60, 75, 45, 60, 75, 90]
 }: ExpenseCardProps) {
+  const { width: screenWidth } = useWindowDimensions();
+  const chartHeight = Math.min(screenWidth * 0.1, 40);
+
   return (
     <View style={styles.container}>
       <View style={[styles.iconContainer, { backgroundColor: color }]}>
@@ -27,7 +30,12 @@ export default function ExpenseCard({
       </View>
       <View style={styles.chartContainer}>
         <Text style={[styles.percentageText, { color }]}>{percentage}%</Text>
-        <BarChart data={chartData} color={color} height={30} barWidth={4} barGap={3} />
+        <BarChart 
+          data={chartData} 
+          color={color} 
+          height={chartHeight}
+          maxValue={100}
+        />
       </View>
     </View>
   );
