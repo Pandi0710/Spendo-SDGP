@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, useWindowDimensions } from 'react-native';
 
 type BarChartProps = {
   data: number[];
@@ -12,13 +12,19 @@ type BarChartProps = {
 export default function BarChart({
   data,
   color = '#3B82F6',
-  height = 40,
-  barWidth = 4,
-  barGap = 2,
+  height = 200, 
   maxValue = 100
 }: BarChartProps) {
+  const { width } = useWindowDimensions(); 
+
+ 
+  const totalBars = data.length;
+  const maxBarWidth = 40; 
+  const dynamicBarWidth = Math.min(width / (totalBars * 2), maxBarWidth);
+  const barGap = dynamicBarWidth * 0.5; 
+
   return (
-    <View style={[styles.container, { height }]}>
+    <View style={[styles.container, { height, width: width * 0.9 }]}>
       {data.map((value, index) => {
         const barHeight = (value / maxValue) * height;
         return (
@@ -28,7 +34,7 @@ export default function BarChart({
               styles.bar,
               {
                 height: barHeight,
-                width: barWidth,
+                width: dynamicBarWidth,
                 marginHorizontal: barGap / 2,
                 backgroundColor: color
               }
@@ -47,6 +53,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   bar: {
-    borderRadius: 2,
+    borderRadius: 4,
   }
 });
