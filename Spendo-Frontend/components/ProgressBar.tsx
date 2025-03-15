@@ -1,46 +1,33 @@
 import { View, StyleSheet, Text } from 'react-native';
 
 type ProgressBarProps = {
-  value: number;
-  color?: string;
+  percentage: number;
   height?: number;
-  maxValue?: number;
-  showPercentage?: boolean;
-  showNaN?: boolean;
 };
 
 export default function ProgressBar({
-  value,
-  color = '#3B82F6',
-  height = 520,
-  maxValue = 100,
-  showPercentage = true,
-  showNaN = true
+  percentage,
+  height = 100, 
 }: ProgressBarProps) {
-  const percentage = Math.min((value / maxValue) * 100, 100);
   const barHeight = (percentage / 100) * height;
 
+  // Dynamically set color based on percentage
+  const getColor = () => {
+    if (percentage >= 80) return '#EF4444';  
+    if (percentage >= 50) return '#FACC15'; 
+    return '#22C55E';  
+  };
+  
   return (
-    <View style={styles.container}>
-      <View style={[styles.progressContainer, { height }]}>
-        <View style={[styles.track, { height }]}>
-          <View
-            style={[
-              styles.fill,
-              {
-                height: barHeight,
-                backgroundColor: color
-              }
-            ]}
-          />
-        </View>
+    <View style={[styles.container, { height }]}>
+      {/* Background Track */}
+      <View style={styles.track}>
+        {/* Filled Progress */}
+        <View style={[styles.fill, { height: barHeight, backgroundColor: getColor() }]} />
       </View>
-      {showPercentage && (
-        <Text style={[styles.percentageText, { color }]}>
-          {Math.round(percentage)}%
-        </Text>
-      )}
       
+      {/* Percentage Label */}
+      <Text style={[styles.percentageText, { color: getColor() }]}>{percentage}%</Text>
     </View>
   );
 }
@@ -48,29 +35,30 @@ export default function ProgressBar({
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    width: 60,
-  },
-  progressContainer: {
-    width: '100%',
-    justifyContent: 'flex-end',
+    padding: 2,
+    marginBottom:10,
+    flexDirection:'row',
+    justifyContent: 'space-between',
   },
   track: {
-    width: 40,
-    backgroundColor: '#e5e7eb',
-    borderRadius: 20,
+    width: 24,  
+    height: '100%',
+    backgroundColor: '#E5E7EB',
+    borderRadius: 12,
     overflow: 'hidden',
-    alignSelf: 'center',
+    flexDirection:'column-reverse',
+    justifyContent: 'center',
   },
   fill: {
     width: '100%',
-    borderRadius: 20,
+    borderRadius: 12,
     position: 'absolute',
     bottom: 0,
   },
   percentageText: {
-    marginTop: 8,
+    marginTop: 4,
+    marginLeft: 20,
     fontSize: 14,
     fontWeight: '600',
   },
- 
 });

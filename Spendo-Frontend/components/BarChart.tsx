@@ -45,7 +45,19 @@ export default function BarChart({
     </View>
   );
 }
-
+const BarGraph = ({ percentage, color }: { percentage: number; color: string }) => (
+  <div className="flex items-center h-3">
+    <div 
+      className="h-2 rounded"
+      style={{ 
+        width: `${percentage}%`,
+        backgroundColor: color,
+        marginRight: '8px'
+      }} 
+    />
+    <span className="text-sm font-semibold" style={{ color }}>{percentage}%</span>
+  </div>
+);
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
