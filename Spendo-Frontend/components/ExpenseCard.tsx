@@ -1,78 +1,73 @@
-import { View, Text, StyleSheet } from 'react-native';
-import { GraduationCap, Key, UtensilsCrossed, Plane } from 'lucide-react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import ProgressBar from './ProgressBar';
 
 type ExpenseCardProps = {
-  icon: 'education' | 'rentals' | 'foods' | 'transport';
+  icon: keyof typeof Ionicons.glyphMap;
   title: string;
   percentage: number;
-  color: string;
-  chartData: number[];
+  color?: string;
+  chartData?: number[];
 };
 
-const IconMap = {
-  education: GraduationCap,
-  rentals: Key,
-  foods: UtensilsCrossed,
-  transport: Plane,
-};
-
-export default function ExpenseCard({ icon, title, percentage, color, chartData }: ExpenseCardProps) {
-  const Icon = IconMap[icon];
+export default function ExpenseCard({ 
+  icon, 
+  title, 
+  percentage, 
+  color = '#60A5FA',
+  chartData = [30, 45, 60, 75, 45, 60, 75, 90]
+}: ExpenseCardProps) {
+  const { width: screenWidth } = useWindowDimensions();
+  const chartHeight = Math.min(screenWidth * 0.1, 40);
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={[styles.iconContainer, { backgroundColor: color }]}>
-          <Icon size={24} color="white" />
-        </View>
+      <View style={[styles.iconContainer, { backgroundColor: color }]}>
+        <Ionicons name={icon} size={30} color="white" />
+      </View>
+      <View style={styles.contentContainer}>
         <Text style={styles.title}>{title}</Text>
       </View>
-      <View style={styles.content}>
-        <ProgressBar
-          value={percentage}
-          color={color}
-          height={120}
-          showPercentage={true}
-         
-        />
-      </View>
+      <View style={styles.chartContainer}>
+  
+  <ProgressBar percentage={percentage} height={80} />
+</View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    backgroundColor: 'white',
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 20,
+    paddingHorizontal: 16,
   },
   iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+  },
+  contentContainer: {
+    flex: 1,
   },
   title: {
     fontSize: 16,
     fontWeight: '600',
     color: '#1F2937',
   },
-  content: {
+  chartContainer: {
+    width: 80,
     alignItems: 'center',
+    justifyContent: 'center',
   },
+  percentageText: {
+    fontSize: 14,
+    fontWeight: '600',
+    marginBottom: 4,
+  }
 });
