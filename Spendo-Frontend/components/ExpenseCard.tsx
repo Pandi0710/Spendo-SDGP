@@ -1,11 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import BarChart from './BarChart';
+import ProgressBar from './ProgressBar';
 
 type ExpenseCardProps = {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
-  percentage: number;
+  
   color?: string;
   chartData?: number[];
 };
@@ -13,22 +13,26 @@ type ExpenseCardProps = {
 export default function ExpenseCard({ 
   icon, 
   title, 
-  percentage, 
+  
   color = '#60A5FA',
   chartData = [30, 45, 60, 75, 45, 60, 75, 90]
 }: ExpenseCardProps) {
+  const { width: screenWidth } = useWindowDimensions();
+  const chartHeight = Math.min(screenWidth * 0.1, 40);
+
   return (
     <View style={styles.container}>
       <View style={[styles.iconContainer, { backgroundColor: color }]}>
-        <Ionicons name={icon} size={24} color="white" />
+        <Ionicons name={icon} size={30} color="white" />
       </View>
       <View style={styles.contentContainer}>
         <Text style={styles.title}>{title}</Text>
       </View>
       <View style={styles.chartContainer}>
-        <Text style={[styles.percentageText, { color }]}>{percentage}%</Text>
-        <BarChart data={chartData} color={color} height={30} barWidth={4} barGap={3} />
-      </View>
+  
+  
+</View>
+
     </View>
   );
 }

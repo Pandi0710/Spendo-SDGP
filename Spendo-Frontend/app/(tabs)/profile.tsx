@@ -38,22 +38,22 @@ export default function ProfileScreen() {
             style={styles.profileImage} 
           />
           <Text style={styles.profileName}>Spendo Jayasingha</Text>
-          <Text style={styles.profileEmail}>spendojaye@example.com</Text>
+          <Text style={styles.profileEmail}>spendojaye@gmail.com</Text>
           
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 4,945</Text>
-              <Text style={styles.statLabel}>Balance</Text>
-            </View>
-            <View style={styles.statDivider} />
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 1,250</Text>
+              <Text style={styles.statValue}>LKR 5000</Text>
               <Text style={styles.statLabel}>Income</Text>
             </View>
             <View style={styles.statDivider} />
             <View style={styles.statItem}>
-              <Text style={styles.statValue}>LKR 3,400</Text>
+              <Text style={styles.statValue}>LKR 3400</Text>
               <Text style={styles.statLabel}>Expenses</Text>
+            </View>
+            <View style={styles.statDivider} />
+            <View style={styles.statItem}>
+              <Text style={styles.statValue}>LKR 1600</Text>
+              <Text style={styles.statLabel}>Balance</Text>
             </View>
           </View>
         </View>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   profileCard: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     alignItems: 'center',
     shadowColor: '#000',
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   },
   menuContainer: {
     margin: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     padding: 16,
     shadowColor: '#000',

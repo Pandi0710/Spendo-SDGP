@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView,useWindowDimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BarChart from '../../components/BarChart';
 
@@ -14,7 +14,7 @@ const categories: CategoryData[] = [
   { name: 'Education', percentage: 35, amount: 1250, color: '#60A5FA', icon: 'school-outline' },
   { name: 'Rentals', percentage: 25, amount: 850, color: '#34D399', icon: 'key-outline' },
   { name: 'Foods', percentage: 20, amount: 650, color: '#F472B6', icon: 'restaurant-outline' },
-  { name: 'Transport', percentage: 12, amount: 400, color: '#A78BFA', icon: 'airplane-outline' },
+  { name: 'Transport', percentage: 12, amount: 400, color: '#A78BFA', icon: 'car-outline' },
   { name: 'Entertainment', percentage: 8, amount: 250, color: '#FBBF24', icon: 'film-outline' },
 ];
 
@@ -70,8 +70,8 @@ export default function StatsScreen() {
               data={[30, 45, 60, 75, 90, 60, 45]} 
               color="#3B82F6" 
               height={150}
-              barWidth={30}
-              barGap={10}
+              barWidth={50}
+              barGap={30}
             />
           </View>
           
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   chartCard: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   categoriesContainer: {
     margin: 16,
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: '#f1fff4',
     borderRadius: 16,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

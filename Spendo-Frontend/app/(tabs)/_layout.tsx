@@ -19,7 +19,8 @@ export default function TabLayout() {
           backgroundColor: '#f5f5f5',
           borderTopWidth: 0,
           elevation: 0,
-          height: 60,
+          height: 80
+          ,
           paddingBottom: 5,
         },
         tabBarActiveTintColor: '#007AFF',
@@ -28,9 +29,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Biggest-Expenses',
           tabBarIcon: ({ size, color, focused }) => (
-            <CustomTabBarIcon name="home-outline" size={size} color={color} focused={focused} />
+            <CustomTabBarIcon name="cash-outline" size={size} color={color} focused={focused} />
           ),
         }}
       />
