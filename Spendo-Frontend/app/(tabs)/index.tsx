@@ -1,12 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView, useWindowDimensions } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import TopExpenses from '../../components/TopExpenses';
 import ExpenseCard from '../../components/ExpenseCard';
-import ProgressBar from '../../components/ProgressBar';
+import ProgressBar from '../../components/ProgressBar'; // Imported ProgressBar
 
 export default function HomeScreen() {
-  ;
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -17,36 +15,34 @@ export default function HomeScreen() {
       <TopExpenses />
       
       <View style={styles.expensesList}>
-      
+      <ProgressBar percentage={80} />
         <ExpenseCard
           icon="school-outline"
           title="Education"
-          percentage={85}
-          color="#60A5FA"
           
+          color="#60A5FA"
         />
+        <ProgressBar percentage={65} />
         <ExpenseCard
           icon="key-outline"
           title="Rentals"
-          percentage={65}
+          
           color="#34D399"
-         
         />
+          <ProgressBar percentage={45} />
         <ExpenseCard
           icon="restaurant-outline"
           title="Foods"
-          percentage={45}
+          
           color="#F472B6"
-         
         />
+         <ProgressBar percentage={25} />
         <ExpenseCard
           icon="airplane-outline"
           title="Transport"
-          percentage={25}
-          color="#A78BFA"
           
-        />
-       
+          color="#A78BFA"
+        />  
       </View>
     </SafeAreaView>
   );
@@ -67,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 16,
     backgroundColor: '#f1fff4',
-    margin:20,
-    borderRadius: 16
+    margin: 20,
+    borderRadius: 16,
   },
 });

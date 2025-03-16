@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 type ExpenseCardProps = {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
-  percentage: number;
+  
   color?: string;
   chartData?: number[];
 };
@@ -13,7 +13,7 @@ type ExpenseCardProps = {
 export default function ExpenseCard({ 
   icon, 
   title, 
-  percentage, 
+  
   color = '#60A5FA',
   chartData = [30, 45, 60, 75, 45, 60, 75, 90]
 }: ExpenseCardProps) {
@@ -30,7 +30,7 @@ export default function ExpenseCard({
       </View>
       <View style={styles.chartContainer}>
   
-  <ProgressBar percentage={percentage} height={80} />
+  
 </View>
 
     </View>
