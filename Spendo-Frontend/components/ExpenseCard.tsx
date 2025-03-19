@@ -5,34 +5,36 @@ import ProgressBar from './ProgressBar';
 type ExpenseCardProps = {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
-  
   color?: string;
-  chartData?: number[];
+  percentage: number;
 };
 
-export default function ExpenseCard({ 
-  icon, 
-  title, 
-  
+export default function ExpenseCard({
+  icon,
+  title,
   color = '#60A5FA',
-  chartData = [30, 45, 60, 75, 45, 60, 75, 90]
+  percentage,
 }: ExpenseCardProps) {
   const { width: screenWidth } = useWindowDimensions();
-  const chartHeight = Math.min(screenWidth * 0.1, 40);
+  const barWidth = screenWidth * 0.65; // Adjust to match the new image proportions
 
   return (
     <View style={styles.container}>
+      {/* Icon */}
       <View style={[styles.iconContainer, { backgroundColor: color }]}>
-        <Ionicons name={icon} size={30} color="white" />
+        <Ionicons name={icon} size={24} color="white" />
       </View>
+
+      {/* Expense Label and Progress Bar */}
       <View style={styles.contentContainer}>
         <Text style={styles.title}>{title}</Text>
-      </View>
-      <View style={styles.chartContainer}>
-  
-  
-</View>
 
+        {/* ProgressBar + Percentage in the same row */}
+        <View style={styles.progressContainer}>
+          <ProgressBar percentage={percentage} width={barWidth} />
+          <Text style={styles.percentageText}>{percentage}%</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -41,7 +43,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    backgroundColor: 'transparent',
+    paddingVertical: 12,
     paddingHorizontal: 16,
   },
   iconContainer: {
@@ -59,15 +62,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#1F2937',
+    marginBottom: 5,
   },
-  chartContainer: {
-    width: 80,
+  progressContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   percentageText: {
     fontSize: 14,
     fontWeight: '600',
-    marginBottom: 4,
-  }
+    color: '#1F2937',
+    marginLeft: 8,
+  },
 });
