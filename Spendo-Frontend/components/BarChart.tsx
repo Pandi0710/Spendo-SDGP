@@ -13,20 +13,30 @@ export default function BarChart({
   data,
   color = '#3B82F6',
   height = 200, 
-  maxValue = 100
+  barWidth,
+  barGap,
+  maxValue
 }: BarChartProps) {
   const { width } = useWindowDimensions(); 
 
- 
+  // Calculate the maximum value from the data if not provided
+  const calculatedMaxValue = maxValue || Math.max(...data);
+
   const totalBars = data.length;
   const maxBarWidth = 40; 
-  const dynamicBarWidth = Math.min(width / (totalBars * 2), maxBarWidth);
-  const barGap = dynamicBarWidth * 0.5; 
+  // Use provided barWidth or calculate dynamically
+  const dynamicBarWidth = barWidth || Math.min(width / (totalBars * 2), maxBarWidth);
+  // Use provided barGap or calculate dynamically
+  const calculatedBarGap = barGap || dynamicBarWidth * 0.8; // Increased gap for better spacing
+
+  // Calculate total width of bars and gaps to ensure proper centering
+  const totalContentWidth = totalBars * dynamicBarWidth + (totalBars - 1) * calculatedBarGap;
+  const containerWidth = Math.max(totalContentWidth, width * 0.9);
 
   return (
-    <View style={[styles.container, { height, width: width * 0.9 }]}>
+    <View style={[styles.container, { height, width: containerWidth }]}>
       {data.map((value, index) => {
-        const barHeight = (value / maxValue) * height;
+        const barHeight = (value / calculatedMaxValue) * height;
         return (
           <View
             key={index}
@@ -35,7 +45,7 @@ export default function BarChart({
               {
                 height: barHeight,
                 width: dynamicBarWidth,
-                marginHorizontal: barGap / 2,
+                marginHorizontal: calculatedBarGap / 2,
                 backgroundColor: color
               }
             ]}
@@ -45,19 +55,7 @@ export default function BarChart({
     </View>
   );
 }
-const BarGraph = ({ percentage, color }: { percentage: number; color: string }) => (
-  <div className="flex items-center h-3">
-    <div 
-      className="h-2 rounded"
-      style={{ 
-        width: `${percentage}%`,
-        backgroundColor: color,
-        marginRight: '8px'
-      }} 
-    />
-    <span className="text-sm font-semibold" style={{ color }}>{percentage}%</span>
-  </div>
-);
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',

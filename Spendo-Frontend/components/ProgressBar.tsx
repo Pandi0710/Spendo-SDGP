@@ -10,7 +10,6 @@ type ProgressBarProps = {
 export default function ProgressBar({
   percentage,
   height = 10,
-  label = '',
 }: ProgressBarProps) {
   const { width } = useWindowDimensions();
   const barWidth = (percentage / 100) * (width * 0.65); // Adjust width to fit within the card

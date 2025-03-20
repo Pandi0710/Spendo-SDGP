@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View,  StyleSheet, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import TopExpenses from '../../components/TopExpenses';
 import ExpenseCard from '../../components/ExpenseCard';
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 16,
-    backgroundColor: '#F1FFF4',
+    backgroundColor: '#7E9279',
   },
   expensesContainer: {
     backgroundColor: '#f1fff3',
