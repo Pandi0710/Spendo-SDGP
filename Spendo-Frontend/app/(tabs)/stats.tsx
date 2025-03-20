@@ -66,12 +66,13 @@ export default function StatsScreen() {
           <Text style={styles.totalAmount}>LKR 3,400</Text>
           
           <View style={styles.chartContainer}>
-            <BarChart 
+          <BarChart 
               data={[30, 45, 60, 75, 90, 60, 45]} 
               color="#3B82F6" 
               height={150}
-              barWidth={50}
-              barGap={30}
+              barWidth={25}
+              barGap={24}
+              maxValue={90} // Explicitly set to the max data value
             />
           </View>
           
@@ -128,7 +129,7 @@ const styles = StyleSheet.create({
     color: '#6B7280',
   },
   periodActive: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 50,
     paddingVertical: 8,
     marginHorizontal: 4,
     borderRadius: 20,
@@ -158,16 +159,19 @@ const styles = StyleSheet.create({
   },
   chartContainer: {
     marginBottom: 16,
+    marginLeft:0,
+    paddingHorizontal: 0,
   },
   chartLabels: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    paddingHorizontal: 1,
   },
   chartLabel: {
     fontSize: 12,
     color: '#6B7280',
     textAlign: 'center',
+    
   },
   categoriesContainer: {
     margin: 16,
