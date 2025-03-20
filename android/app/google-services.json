@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "347636111001",
+    "project_id": "spendoapp-b3f0e",
+    "storage_bucket": "spendoapp-b3f0e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347636111001:android:cca1dbc09f5a719c7d8a08",
+        "android_client_info": {
+          "package_name": "com.anonymous.Spendo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347636111001-sekrqfrag2qc687lpjuem1h1463lhonh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0KyPbnQt74r_X-5ucCXyOpEJFF6KVpZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347636111001-sekrqfrag2qc687lpjuem1h1463lhonh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "347636111001-l8pivth2euhhqkve0utasdmje1ald0or.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anonymous.Spendo"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

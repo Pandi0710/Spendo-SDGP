@@ -1,45 +1,73 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { View, StyleSheet } from "react-native";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+function CustomTabBarIcon({
+  name,
+  color,
+  size,
+  focused,
+}: {
+  name: keyof typeof Ionicons.glyphMap;
+  color: string;
+  size: number;
+  focused: boolean;
+}) {
+  return (
+    <View
+      style={[
+        styles.iconContainer,
+        focused ? styles.activeIconContainer : null,
+      ]}
+    >
+      <Ionicons name={name} size={size} color={color} />
+    </View>
+  );
+}
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
+    <Tabs>
       <Tabs.Screen
-        name="index"
+        name="dashboard"
+        
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: "Dashboard",
+          headerShown: false,
+          tabBarIcon: ({ size, color, focused }) => (
+            <CustomTabBarIcon
+              name="cash-outline"
+              size={size}
+              color={color}
+              focused={focused}
+            />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="profile"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: "Account",
+          headerShown: false,
+          tabBarIcon: ({ size, color, focused }) => (
+            <CustomTabBarIcon
+              name="person-outline"
+              size={size}
+              color={color}
+              focused={focused}
+            />
+          ),
         }}
       />
     </Tabs>
   );
 }
+const styles = StyleSheet.create({
+  iconContainer: {
+    padding: 8,
+    borderRadius: 8,
+  },
+  activeIconContainer: {
+    backgroundColor: "#E5E7EB",
+  },
+});
