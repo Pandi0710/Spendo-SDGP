@@ -8,8 +8,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const API_URL =
   Platform.OS === "android"
+<<<<<<< HEAD
     ? "http://10.0.2.2:3000/api/auth"
     : "http://localhost:3000/api/auth";
+=======
+    ? "http://10.0.2.2:4000/api/auth"
+    : "http://localhost:4000/api/auth";
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
 
 // Login API Call
 export const loginUser = async (email: string, password: string) => {

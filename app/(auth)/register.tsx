@@ -20,6 +20,11 @@ export default function RegisterScreen() {
     return null;
   }
   const registerUser = authContext.register;
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -29,7 +34,10 @@ export default function RegisterScreen() {
   const [loading, setLoading] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+<<<<<<< HEAD
   const [errorMessage, setErrorMessage] = useState(""); // Added state for error messages
+=======
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
 
   const validateEmail = (email: string) => {
     return /\S+@\S+\.\S+/.test(email); // Basic email validation
@@ -39,6 +47,7 @@ export default function RegisterScreen() {
     return password.length >= 6; // Ensures password is at least 6 characters
   };
 
+<<<<<<< HEAD
   const validatePasswordStrength = (password: string) => {
     return /[A-Z]/.test(password) && /[0-9]/.test(password); // Checks for at least one uppercase letter and one number
   };
@@ -46,32 +55,50 @@ export default function RegisterScreen() {
   const handleRegister = async () => {
     if (!email || !phone || !password || !confirmPassword) {
       setErrorMessage("Please fill in all fields");
+=======
+  const handleRegister = async () => {
+    if (!email || !phone || !password || !confirmPassword) {
+      Alert.alert("Error", "Please fill in all fields");
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
       return;
     }
 
     if (!validateEmail(email)) {
+<<<<<<< HEAD
       setErrorMessage("Please enter a valid email address");
+=======
+      Alert.alert("Error", "Please enter a valid email address");
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
       return;
     }
 
     if (!validatePassword(password)) {
+<<<<<<< HEAD
       setErrorMessage("Password must be at least 6 characters");
       return;
     }
 
     if (!validatePasswordStrength(password)) {
       setErrorMessage("Password must contain at least one uppercase letter and one number");
+=======
+      Alert.alert("Error", "Password must be at least 6 characters");
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
       return;
     }
 
     if (password !== confirmPassword) {
+<<<<<<< HEAD
       setErrorMessage("Passwords do not match");
+=======
+      Alert.alert("Error", "Passwords do not match");
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
       return;
     }
 
     setLoading(true);
     try {
       if (registerUser) {
+<<<<<<< HEAD
         await registerUser(name, email, password, phone);
         setErrorMessage(""); // Clear error message on successful registration
       } else {
@@ -79,6 +106,14 @@ export default function RegisterScreen() {
       }
     } catch (error: any) {
       setErrorMessage(error.message || "Failed to register");
+=======
+        await registerUser(name,email,password,phone);
+      } else {
+        Alert.alert("Error", "Register function is not available");
+      }
+    } catch (error: any) {
+      Alert.alert("Registration Failed", error.message || "Failed to register");
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
     } finally {
       setLoading(false);
     }
@@ -167,9 +202,12 @@ export default function RegisterScreen() {
           </TouchableOpacity>
         </View>
 
+<<<<<<< HEAD
         {/* Error Message */}
         {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
 
+=======
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
         {/* Terms and Conditions */}
         <Text style={styles.termsText}>
           By signing up, you agree to Spendo's{" "}
@@ -249,10 +287,13 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
   },
+<<<<<<< HEAD
   errorMessage: {
     color: "red",
     marginVertical: 10,
   },
+=======
+>>>>>>> f00ed4265e200a61e2000dddb5dcd0c2ddfafe47
   termsText: {
     marginVertical: 20,
     textAlign: "center",
