@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 const ConfirmationScreen = ({ route, navigation }) => {
-
   const amount = route?.params?.amount || 0;
   const emergencyFund = (amount * 0.1).toFixed(2);
 
@@ -27,7 +26,7 @@ const ConfirmationScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#A3D5F7",
+    backgroundColor: "#F2F8E5", 
     justifyContent: "center",
     alignItems: "center",
     padding: 20,
@@ -36,10 +35,11 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 20,
+    color: "#2D6A4F", 
   },
   box: {
     width: "90%",
-    backgroundColor: "white",
+    backgroundColor: "#D9EDBF", 
     padding: 20,
     borderRadius: 10,
     shadowColor: "#000",
@@ -52,16 +52,17 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     marginTop: 10,
+    color: "#2D6A4F", 
   },
   value: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "#007BFF",
+    color: "#1B4332", 
     marginTop: 5,
   },
   button: {
     marginTop: 30,
-    backgroundColor: "#0056B3",
+    backgroundColor: "#74C69D", 
     paddingVertical: 12,
     paddingHorizontal: 25,
     borderRadius: 8,
