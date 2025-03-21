@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 const ConfirmationScreen = ({ route, navigation }) => {
-  // Get amount from route params safely
+
   const amount = route?.params?.amount || 0;
   const emergencyFund = (amount * 0.1).toFixed(2);
 
