@@ -9,24 +9,6 @@ export default function App() {
   const [amountToAdd, setAmountToAdd] = useState({});
   const [completedGoals, setCompletedGoals] = useState(0);
 
-  const addGoal = () => {
-    if (newGoal && newTarget) {
-      setGoals([
-        ...goals,
-        {
-          id: Date.now(),
-          name: newGoal,
-          progress: 0,
-          target: Number(newTarget),
-          completed: false,
-          icon: getGoalIcon(newGoal),
-        },
-      ]);
-      setNewGoal("");
-      setNewTarget("");
-    }
-  };
-
   const addMoney = (id) => {
     const amount = Number(amountToAdd[id]) || 0;
     setGoals((prevGoals) =>
