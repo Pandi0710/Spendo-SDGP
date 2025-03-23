@@ -38,3 +38,7 @@ yarn-error.*
 app-example
 node_modules
 node_modules
+
+# Ignore macOS system files
+.DS_Store
+.DS_Store
