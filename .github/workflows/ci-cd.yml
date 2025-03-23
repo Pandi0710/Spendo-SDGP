@@ -14,14 +14,30 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
       
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+      
       - name: Install dependencies
         run: npm install
 
       - name: Run tests
         run: npm test
+
+      - name: Debug Git information
+        run: |
+          git --version
+          git remote -v
+          git status
