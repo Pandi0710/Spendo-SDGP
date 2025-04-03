@@ -1,6 +1,0 @@
-module Pods_Spendo {
-  umbrella header "Pods-Spendo-umbrella.h"
-
-  export *
-  module * { export * }
-}
